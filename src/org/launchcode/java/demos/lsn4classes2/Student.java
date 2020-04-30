@@ -32,25 +32,22 @@ public class Student {
     }
 
 
-     //TODO: Uncomment and complete the getGradeLevel method here:
-//    public String getGradeLevel() {
-//        // Determine the grade level of the student based on numberOfCredits
-//    }
-
-    public String getGradeLevel( int credits ) {
+     // Uncomment and complete the getGradeLevel method here:
+    public String getGradeLevel() {
         // Determine the grade level of the student based on numberOfCredits
-        if (credits <= 29) {
-            return "freshman";
-        } else if (credits <= 59) {
-            return "sophomore";
-        } else if (credits <= 89) {
-            return "junior";
+        if (numberOfCredits <= 29) {
+            return "Freshman";
+        } else if (numberOfCredits <= 59) {
+            return "Sophomore";
+        } else if (numberOfCredits <= 89) {
+            return "Junior";
         } else {
-            return "senior";
+            return "Senior";
         }
     }
 
-    // TODO: Complete the addGrade method.
+
+    // Complete the addGrade method.
     /**
      * Add a course grade, updating the student's GPA and total credits.
      * Calculate the new GPA using gpa = (total quality score) / (total number of credits)
@@ -59,55 +56,83 @@ public class Student {
      * @param courseGrade The final grade from the course
      */
     public void addGrade(int courseCredits, double courseGrade) {
-        // Update the appropriate fields: numberOfCredits, gpa
-        // quality score for course: letter grade aka gpa (0.0-4.0) * number of credits
-        // quality score for all courses: gpa * credits. Aka sum of all quality scores
-        double qualityScore = courseCredits * courseGrade;
-        double totalQualityScore = (this.numberOfCredits * this.gpa) + qualityScore;
+        double courseQualityScore = courseCredits * courseGrade;
+        double totalQualityScore = (this.gpa * this.numberOfCredits) + courseQualityScore;
         this.numberOfCredits += courseCredits;
-        this.gpa += totalQualityScore / this.numberOfCredits;
+        gpa = totalQualityScore / this.numberOfCredits;
     }
 
-    // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
+    // Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
     //  than just the class fields.
     @Override
-    public String toString() {;
-        String report = name + " is a " + getGradeLevel(numberOfCredits) + " with " + numberOfCredits + " credits and a GPA of " + gpa;
-        String reportFormatted = String.format("name %s is a %s with %d credits and a GPA of %.2f", name, getGradeLevel(numberOfCredits), numberOfCredits, gpa);
-        String studentReport = String.format("%s is a %s with %d credits and a GPA of %.2f", name, getGradeLevel(numberOfCredits), getNumberOfCredits(), getGpa());
-        return reportFormatted;
+    public String toString() {
+        //return "Student name: " + name + "\nStudent Id: " + studentId + "\nGPA: " + gpa;
+        return String.format("Student name: %s \nStudent Id: %d \nGPA: %.2f", name, studentId, gpa);
     }
 
-    // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
+
+    // Add your custom 'equals' method here. Consider which fields should match in order to call two
     //  Student objects equal.
-    @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o){
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Student s = (Student) o;
+        return studentId == s.getStudentId() &&
+                name == s.getName() &&
+                gpa == s.getGpa();
+    }
         // Check for identity --> true
         // Check for null --> false
         // Check for same class --> then can cast and compare
-        Student s = (Student) o;
-        return s.getStudentId() == this.getStudentId();
+
+
+    public String getName() {
+        return name;
+    }
+    public int getStudentId() {
+        return studentId;
+    }
+    public int getNumberOfCredits() {
+        return numberOfCredits;
+    }
+    public double getGpa() {
+        return gpa;
     }
 
-    public String getName() { return name; }
-    public int getStudentId() { return studentId; }
-    public int getNumberOfCredits() { return numberOfCredits; }
-    public double getGpa() { return gpa; }
-
-    public void setName(String name) { this.name = name; }
-    public void setStudentId(int studentId) { this.studentId = studentId; }
-    public void setGpa(double gpa) { this.gpa = gpa; }
-    private void setNumberOfCredits(int numberOfCredits) { this.numberOfCredits = numberOfCredits; }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+    private void setNumberOfCredits(int numberOfCredits) {
+        this.numberOfCredits = numberOfCredits;
+    }
 
     public static void main(String[] args) {
         Student sally = new Student("Sally",1,1,4.0);
         System.out.println("The Student class works! " + sally.getName() + " is a student!");
         System.out.println(sally);
         sally.addGrade(12, 3.5);
+        System.out.println("Sally's new GPA: " + sally.getGpa());
+
         System.out.println(sally);
         sally.addGrade(25, 3.8);
         System.out.println(sally);
+        System.out.println(sally.getGradeLevel());
 
-        System.out.println(sally.toString());
+        Student sally2 = new Student("Sally", 1, 234, 3.0);
+        System.out.println(sally.equals(sally2));
+
+        Course java = new Course("Java", new Teacher("The", "Teacher", "Java", 12));
+        System.out.println( "\n" + java);
     }
 }
