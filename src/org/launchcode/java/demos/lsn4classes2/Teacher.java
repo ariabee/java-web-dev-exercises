@@ -1,5 +1,7 @@
 package org.launchcode.java.demos.lsn4classes2;
 
+import java.util.Objects;
+
 public class Teacher {
     private String firstName;
     private String lastName;
@@ -43,5 +45,19 @@ public class Teacher {
 
     public int getYearsTeaching() {
         return yearsTeaching;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if ( o == null || getClass() != o.getClass() ) return false;
+        Teacher teacher = (Teacher) o;
+        return firstName.equals(teacher.firstName) &&
+                lastName.equals(teacher.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName);
     }
 }
