@@ -1,6 +1,6 @@
 package exercises.technology;
 
-public class Computer extends AbstractEntity{
+public class Computer extends AbstractEntity {
     private int ram;
     private int storage;
     private boolean hasKeyboard;
@@ -21,14 +21,28 @@ public class Computer extends AbstractEntity{
         return hasKeyboard;
     }
 
+
     public void increaseRAM(int n) {
         this.ram += n;
     }
 
     public void increaseStorage(int x) {
         this.storage += x;
-        System.out.println(this.secret);
     }
+
+    public boolean checkEmail() {
+        return true;
+    }
+
+    public boolean hasTouchScreen() {
+        return false;
+    }
+
+    @Override
+    public String speak() {
+        return "Psst, I am your computer.";
+    }
+
 }
 
 
@@ -39,8 +53,3 @@ public class Computer extends AbstractEntity{
 
 
 
-
-//    @Override
-//    public String speak() {
-//        return "Psst, I am your computer.";
-//    }

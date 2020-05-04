@@ -8,11 +8,22 @@ import exercises.technology.*;
 
 
 public class SmartPhoneTest {
+
+    SmartPhone phoney;
+
+    @Before
+    public void initPhone() {
+        phoney = new SmartPhone(32,4,false,365);
+    }
+
     @Test
     public void inheritsSuperInFirstConstructor() {
-//        HouseCat keyboardCat = new HouseCat("Keyboard Cat", 7);
-//        assertEquals(7, keyboardCat.getWeight(), .001);
-        SmartPhone sue = new SmartPhone(32,4,false,365);
-        assertEquals(32, sue.getRam(), 0.001);
+        assertEquals(32, phoney.getRam(), 0.001);
     }
+
+    @Test
+    public void inheritedCheckEmailReturnsTrue() {
+        assertTrue(phoney.checkEmail());
+    }
+
 }

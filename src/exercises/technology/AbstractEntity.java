@@ -16,20 +16,8 @@ public abstract class AbstractEntity {
     }
 
     // Try abstract method
+    public abstract boolean hasTouchScreen();
+
+    public abstract String speak();
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//public abstract String speak();

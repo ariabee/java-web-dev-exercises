@@ -13,4 +13,9 @@ public class Laptop extends Computer {
         return (weight > 5.0);
     }
 
+    @Override
+    public String speak() {
+        return "Psst, I am your laptop.";
+    }
+
 }

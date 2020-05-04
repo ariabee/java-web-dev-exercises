@@ -9,8 +9,14 @@ public class Program {
         SmartPhone myPhone = new SmartPhone(32,4,false,365);
 
         Computer lue = new Laptop(1,2,true, 1);
-        //System.out.println(lue.secret);
-        lue.increaseStorage(5);
+        System.out.println(lue.secret);
+
+        System.out.println(myLaptop.hasTouchScreen());
+
+        Computer[] devices = {myLaptop, myPhone, lue};
+        for (Computer d : devices) {
+            System.out.println(d.speak());
+        }
 
         System.out.println(myLaptop.getId());
         System.out.println(myPhone.getId());
@@ -50,3 +56,6 @@ public class Program {
 //        for (int i = 0; i < localRand; i++) {
 //        myPhone.takeSelfie();
 //        }
+
+////System.out.println(lue.secret);
+//        lue.increaseStorage(5);

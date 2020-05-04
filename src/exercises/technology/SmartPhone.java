@@ -17,4 +17,9 @@ public class SmartPhone extends Computer {
         return this.numberOfCatSelfies;
     }
 
+    @Override
+    public String speak() {
+        return "Psst, I am your smartphone.";
+    }
+
 }
