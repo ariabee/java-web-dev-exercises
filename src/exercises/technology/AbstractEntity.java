@@ -3,14 +3,16 @@ package exercises.technology;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class AbstractEntity {
-    private int Id;
+    private int iD;
+    public static String secret = "I'm inside the box!";
 
+    // This constructor is automatically called when an instance of an inherited class (Computer,...) is created
     public AbstractEntity() {
-        this.Id = ThreadLocalRandom.current().nextInt(0, 100 + 1);
+        this.iD = ThreadLocalRandom.current().nextInt(0, 100 + 1);
     }
 
     public int getId() {
-        return this.Id;
+        return this.iD;
     }
 
     // Try abstract method

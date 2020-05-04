@@ -6,7 +6,6 @@ public class Computer extends AbstractEntity{
     private boolean hasKeyboard;
 
     public Computer(int ram, int storage, boolean hasKeyboard) {
-        //super();
         this.ram = ram;
         this.storage = storage;
         this.hasKeyboard = hasKeyboard;
@@ -28,6 +27,7 @@ public class Computer extends AbstractEntity{
 
     public void increaseStorage(int x) {
         this.storage += x;
+        System.out.println(this.secret);
     }
 }
 

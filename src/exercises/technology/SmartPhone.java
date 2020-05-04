@@ -2,19 +2,19 @@ package exercises.technology;
 
 public class SmartPhone extends Computer {
 
-    private int numberOfSelfies;
+    private int numberOfCatSelfies;
 
-    public SmartPhone(int ram, int storage, boolean hasKeyboard, int numberOfSelfies) {
+    public SmartPhone(int ram, int storage, boolean hasKeyboard, int numberOfCatSelfies) {
         super(ram, storage, hasKeyboard);
-        this.numberOfSelfies = numberOfSelfies;
+        this.numberOfCatSelfies = numberOfCatSelfies;
     }
 
-    public void takeSelfie() {
-        this.numberOfSelfies++;
+    public void takeCatSelfie() {
+        this.numberOfCatSelfies++;
     }
 
-    public int getNumberOfSelfies() {
-        return this.numberOfSelfies;
+    public int getNumberOfCatSelfies() {
+        return this.numberOfCatSelfies;
     }
 
 }

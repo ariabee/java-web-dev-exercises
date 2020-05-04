@@ -9,6 +9,8 @@ public class Program {
         SmartPhone myPhone = new SmartPhone(32,4,false,365);
 
         Computer lue = new Laptop(1,2,true, 1);
+        //System.out.println(lue.secret);
+        lue.increaseStorage(5);
 
         System.out.println(myLaptop.getId());
         System.out.println(myPhone.getId());
@@ -20,9 +22,9 @@ public class Program {
             System.out.println("My laptop is so light!");
         }
 
-        myPhone.takeSelfie();
+        myPhone.takeCatSelfie();
 
-        System.out.println("I just took a selfie! I now have " + myPhone.getNumberOfSelfies() + " selfies on my phone!");
+        System.out.println("My cat just took a selfie! I now have " + myPhone.getNumberOfCatSelfies() + " cat self-purrtraits on my phone!");
     }
 }
 
