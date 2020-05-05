@@ -25,7 +25,7 @@ public class Course {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Course)) return false;
         Course course = (Course) o;
         return topic.equals(course.topic) &&
                 instructor.equals(course.instructor);
@@ -34,5 +34,16 @@ public class Course {
     @Override
     public int hashCode() {
         return Objects.hash(topic, instructor);
+    }
+
+    /**
+     * Main method to test .equals using: if ( !(o instanceof Course) ) return false;
+     * instead of the default generated: if ( o==null || getClass() != o.getClass();
+     * */
+    public static void main(String[] args) {
+        Teacher teacher = new Teacher("T", "T", "test", 2);
+        Course c = new Course("testing", teacher);
+
+        System.out.println(c.equals(null));
     }
 }
