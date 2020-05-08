@@ -62,7 +62,7 @@ public class Cat {
         hungry = false;
     }
 
-    private String noise () {
+    public String noise () {
         return "Meeeeeeooooowww!";
     }
 
