@@ -8,5 +8,6 @@ public class CatProgram {
 
         System.out.println(meow.getWeight());
 
+        c.thinkProtectedCatThought();
     }
 }

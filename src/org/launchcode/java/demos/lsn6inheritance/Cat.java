@@ -62,7 +62,12 @@ public class Cat {
         hungry = false;
     }
 
-    public String noise () {
+    private String noise () {
         return "Meeeeeeooooowww!";
     }
+
+    protected String thinkProtectedCatThought() {
+        return "thinking inside this class & package, and in any classes that extend Cat in any package";
+    }
+
 }
